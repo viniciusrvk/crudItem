@@ -1,14 +1,15 @@
 package br.com.rvkdid.crudItem.model;
 
-import lombok.Data;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Optional;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import lombok.Data;
 
 @Data
-@Entity
+@Entity(name = "PESSOA")
 public class Pessoa {
 
     @Id
@@ -16,8 +17,15 @@ public class Pessoa {
 
     @Column(name = "NOME")
     private String nome;
+    
+    @Column
+    private Integer idade;
 
-    @Column(name = "ENDERECO")
-    private Optional<Endereco> endereco;
+    @OneToOne
+    @JoinColumn(name = "ENDERECO" )
+    private Endereco endereco;
+    
+    private String mensagemErro;
+    private Integer codigoErro;
 
 }

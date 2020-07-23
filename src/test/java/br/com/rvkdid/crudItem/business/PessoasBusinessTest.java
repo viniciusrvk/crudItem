@@ -14,14 +14,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import br.com.rvkdid.crudItem.model.Pessoa;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = PessoaBusiness.class)
-public class PessoaBusinessTest {
+@SpringBootTest(classes = PessoasBusiness.class)
+public class PessoasBusinessTest {
 
 	@Autowired
-	private PessoaBusiness pessoaBusiness;
+	private PessoasBusiness pessoaBusiness;
 	
 	@Test
-	public void deveValidarUmaListaDePessoas() {
+	public void deveValidarUmaListaDePessoas() throws Exception {
 		List<Pessoa> pessoas = new ArrayList<Pessoa>();
 		Pessoa pessoa1 = new Pessoa();
 		pessoa1.setNome("");
@@ -30,7 +30,7 @@ public class PessoaBusinessTest {
 		pessoas.add(pessoa1);
 		pessoas.add(pessoa2);
 		
-		List<Pessoa> processar = pessoaBusiness.processar(pessoas);
+		List processar = pessoaBusiness.processar(pessoas);
 		
 		System.out.println(processar);
 		
